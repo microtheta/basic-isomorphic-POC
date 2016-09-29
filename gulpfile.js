@@ -30,7 +30,7 @@ var scripts = {
      .bundle()
      .on('error', gutil.log.bind(gutil, '❌ ', gutil.colors.red('Error:')))
      .pipe(source('app.js'))
-     .pipe(streamify(uglify()))
+     //.pipe(streamify(uglify()))
      .pipe(gulp.dest("./public"));
  },
  watch: function () {

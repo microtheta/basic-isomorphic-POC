@@ -44,11 +44,19 @@ app.set('view', require('react-engine/lib/expressView'));
 
 app.use('/public', express.static(path.join(__dirname, './public')));
 
+
+app.get('/favicon.ico' , function(req , res){ res.send();});
 /**
  * Router : all client routs handled by react-router
  */
+app.get('/1', function(request, response, next) {
+  response.render(request.url, {a:Math.random()});
+});
+app.get('/2', function(request, response, next) {
+  response.render(request.url);
+});
 app.get('/*', function(request, response, next) {
-  response.render(request.url, {a:1});
+  response.render(request.url);
 });
 
 
